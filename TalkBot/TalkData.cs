@@ -30,6 +30,16 @@ namespace TalkBot
             // リストの初期化
         }
 
+        /// <summary>
+        /// 表情の画像のパスを取得するメソッド
+        /// </summary>
+        /// <param name="face">表情</param>
+        /// <returns>指定した表情画像のファイルパス</returns>
+        public string GetImageFilePath(Face face)
+        {
+            return String.Format("img/Face_{0}.png", face);
+        }
+
         #endregion
 
         #region プロパティ

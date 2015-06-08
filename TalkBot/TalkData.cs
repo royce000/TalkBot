@@ -23,6 +23,7 @@ namespace TalkBot
         private List<TalkDataValue> talkDataList = new List<TalkDataValue>();   // 会話で使用する言葉データを保持するリスト
 
 
+
         #region メソッド
 
         public TalkData()
@@ -31,7 +32,7 @@ namespace TalkBot
         }
 
         /// <summary>
-        /// 表情の画像のパスを取得するメソッド
+        /// 指定した表情の画像のパスを取得するメソッド
         /// </summary>
         /// <param name="face">表情</param>
         /// <returns>指定した表情画像のファイルパス</returns>

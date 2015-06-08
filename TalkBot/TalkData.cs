@@ -20,14 +20,14 @@ namespace TalkBot
         }
 
 
-        private DataTable talkDataTable = new DataTable();   // 会話で使用する言葉データを保持するテーブル
+        private List<TalkDataValue> talkDataList = new List<TalkDataValue>();   // 会話で使用する言葉データを保持するリスト
 
 
         #region メソッド
 
         public TalkData()
         {
-            // テーブルの初期化
+            // リストの初期化
         }
 
         #endregion
@@ -35,11 +35,12 @@ namespace TalkBot
         #region プロパティ
 
         /// <summary>
-        /// 会話で使用する言葉のデータテーブルを取得
+        /// 会話で使用する言葉のデータリストを取得
         /// </summary>
-        public DataTable TalkDataTable { get { return talkDataTable; } }
+        public List<TalkDataValue> TalkDataList { get { return talkDataList; } }
 
         #endregion
+
 
         public class TalkDataValue
         {

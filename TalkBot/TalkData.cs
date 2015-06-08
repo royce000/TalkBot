@@ -10,6 +10,15 @@ namespace TalkBot
 {
     public class TalkData
     {
+        // コンピューターの表情画像用定数
+        public enum Face
+        {
+            Normal,     // 通常時の顔
+            Smile,      // 笑顔
+            Angry,      // 怒り顔
+            Cry         // 泣き顔
+        }
+
         private DataTable talkDataTable = new DataTable();   // 会話で使用する言葉データを保持するテーブル
 
 

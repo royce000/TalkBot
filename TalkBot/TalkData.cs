@@ -55,6 +55,44 @@ namespace TalkBot
 
         public class TalkDataValue
         {
+            #region メソッド
+
+            // コンストラクター
+            public TalkDataValue()
+            {
+                this.InputText = "";
+                this.OutputText = "";
+                this.FaceImage = Face.Normal;
+            }
+
+            /// <summary>
+            /// コンストラクター
+            /// </summary>
+            /// <param name="inputText">反応文字列</param>
+            /// <param name="outputText">応答文字列</param>
+            /// <param name="faceImage">表情画像</param>
+            public TalkDataValue(string inputText, string outputText, Face faceImage)
+            {
+                this.SetAllValue(inputText, outputText, faceImage);
+            }
+
+            /// <summary>
+            /// すべてのプロパティに値をセットするメソッド
+            /// </summary>
+            /// <param name="inputText">反応文字列</param>
+            /// <param name="outputText">応答文字列</param>
+            /// <param name="faceImage">表情画像フラグ</param>
+            public void SetAllValue(string inputText, string outputText, Face faceImage)
+            {
+                this.InputText = inputText;
+                this.OutputText = outputText;
+                this.FaceImage = faceImage;
+            }
+
+            #endregion
+
+            #region プロパティ
+
             /// <summary>入力された文字列（反応文字列）</summary>
             public string InputText { get; set; }
 
@@ -63,6 +101,8 @@ namespace TalkBot
 
             /// <summary>どの表情をするかのフラグ定数</summary>
             public Face FaceImage { get; set; }
+
+            #endregion
         }
     }
 }

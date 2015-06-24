@@ -31,24 +31,24 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.talkButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.talkTextBox = new System.Windows.Forms.TextBox();
+            this.facePicBox = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.forgettingButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.FOutputTextBox = new System.Windows.Forms.TextBox();
+            this.FInputTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.educationButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.EOutputTextBox = new System.Windows.Forms.TextBox();
+            this.EInputTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facePicBox)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -68,8 +68,8 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.talkButton);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.pictureBox1);
+            this.tabPage1.Controls.Add(this.talkTextBox);
+            this.tabPage1.Controls.Add(this.facePicBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -89,27 +89,28 @@
             this.talkButton.TabIndex = 2;
             this.talkButton.Text = "話しかける";
             this.talkButton.UseVisualStyleBackColor = true;
+            this.talkButton.Click += new System.EventHandler(this.talkButton_Click);
             // 
-            // textBox1
+            // talkTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.talkTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(6, 330);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(464, 64);
-            this.textBox1.TabIndex = 1;
+            this.talkTextBox.Location = new System.Drawing.Point(6, 330);
+            this.talkTextBox.Multiline = true;
+            this.talkTextBox.Name = "talkTextBox";
+            this.talkTextBox.Size = new System.Drawing.Size(464, 64);
+            this.talkTextBox.TabIndex = 1;
             // 
-            // pictureBox1
+            // facePicBox
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.facePicBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(464, 318);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.facePicBox.Location = new System.Drawing.Point(6, 6);
+            this.facePicBox.Name = "facePicBox";
+            this.facePicBox.Size = new System.Drawing.Size(464, 318);
+            this.facePicBox.TabIndex = 0;
+            this.facePicBox.TabStop = false;
             // 
             // tabPage2
             // 
@@ -128,10 +129,10 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.forgettingButton);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.FOutputTextBox);
+            this.groupBox2.Controls.Add(this.FInputTextBox);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(6, 116);
             this.groupBox2.Name = "groupBox2";
@@ -140,14 +141,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "忘却";
             // 
-            // button3
+            // forgettingButton
             // 
-            this.button3.Location = new System.Drawing.Point(6, 68);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(452, 30);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "忘却";
-            this.button3.UseVisualStyleBackColor = true;
+            this.forgettingButton.Location = new System.Drawing.Point(6, 68);
+            this.forgettingButton.Name = "forgettingButton";
+            this.forgettingButton.Size = new System.Drawing.Size(452, 30);
+            this.forgettingButton.TabIndex = 4;
+            this.forgettingButton.Text = "忘却";
+            this.forgettingButton.UseVisualStyleBackColor = true;
+            this.forgettingButton.Click += new System.EventHandler(this.forgettingButton_Click);
             // 
             // label3
             // 
@@ -158,23 +160,23 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "出力文字列";
             // 
-            // textBox4
+            // FOutputTextBox
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.FOutputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(96, 43);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(362, 19);
-            this.textBox4.TabIndex = 2;
+            this.FOutputTextBox.Location = new System.Drawing.Point(96, 43);
+            this.FOutputTextBox.Name = "FOutputTextBox";
+            this.FOutputTextBox.Size = new System.Drawing.Size(362, 19);
+            this.FOutputTextBox.TabIndex = 2;
             // 
-            // textBox5
+            // FInputTextBox
             // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.FInputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(96, 18);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(362, 19);
-            this.textBox5.TabIndex = 1;
+            this.FInputTextBox.Location = new System.Drawing.Point(96, 18);
+            this.FInputTextBox.Name = "FInputTextBox";
+            this.FInputTextBox.Size = new System.Drawing.Size(362, 19);
+            this.FInputTextBox.TabIndex = 1;
             // 
             // label4
             // 
@@ -190,10 +192,10 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.educationButton);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.EOutputTextBox);
+            this.groupBox1.Controls.Add(this.EInputTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
@@ -202,14 +204,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "教育";
             // 
-            // button2
+            // educationButton
             // 
-            this.button2.Location = new System.Drawing.Point(6, 68);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(452, 30);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "教育";
-            this.button2.UseVisualStyleBackColor = true;
+            this.educationButton.Location = new System.Drawing.Point(6, 68);
+            this.educationButton.Name = "educationButton";
+            this.educationButton.Size = new System.Drawing.Size(452, 30);
+            this.educationButton.TabIndex = 4;
+            this.educationButton.Text = "教育";
+            this.educationButton.UseVisualStyleBackColor = true;
+            this.educationButton.Click += new System.EventHandler(this.educationButton_Click);
             // 
             // label2
             // 
@@ -220,23 +223,23 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "出力文字列";
             // 
-            // textBox3
+            // EOutputTextBox
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.EOutputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(96, 43);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(362, 19);
-            this.textBox3.TabIndex = 2;
+            this.EOutputTextBox.Location = new System.Drawing.Point(96, 43);
+            this.EOutputTextBox.Name = "EOutputTextBox";
+            this.EOutputTextBox.Size = new System.Drawing.Size(362, 19);
+            this.EOutputTextBox.TabIndex = 2;
             // 
-            // textBox2
+            // EInputTextBox
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.EInputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(96, 18);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(362, 19);
-            this.textBox2.TabIndex = 1;
+            this.EInputTextBox.Location = new System.Drawing.Point(96, 18);
+            this.EInputTextBox.Name = "EInputTextBox";
+            this.EInputTextBox.Size = new System.Drawing.Size(362, 19);
+            this.EInputTextBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -259,7 +262,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facePicBox)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -274,20 +277,20 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox facePicBox;
+        private System.Windows.Forms.TextBox talkTextBox;
         private System.Windows.Forms.Button talkButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox EInputTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox EOutputTextBox;
+        private System.Windows.Forms.Button educationButton;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button forgettingButton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox FOutputTextBox;
+        private System.Windows.Forms.TextBox FInputTextBox;
         private System.Windows.Forms.Label label4;
     }
 }

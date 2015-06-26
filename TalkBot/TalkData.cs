@@ -127,6 +127,7 @@ namespace TalkBot
         #endregion
 
 
+        [Serializable]
         public class TalkDataValue
         {
             #region メソッド

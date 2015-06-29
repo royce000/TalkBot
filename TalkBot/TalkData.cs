@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace TalkBot
         }
 
 
-        private List<TalkDataValue> talkDataList = new List<TalkDataValue>();   // 会話で使用する言葉データを保持するリスト
+        private BindingList<TalkDataValue> talkDataList = new BindingList<TalkDataValue>();   // 会話で使用する言葉データを保持するリスト
 
 
 
@@ -192,7 +193,7 @@ namespace TalkBot
         /// <summary>
         /// 会話で使用する言葉のデータリストを取得
         /// </summary>
-        public List<TalkDataValue> TalkDataList { get { return talkDataList; } }
+        public BindingList<TalkDataValue> TalkDataList { get { return talkDataList; } }
 
         #endregion
 

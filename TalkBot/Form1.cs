@@ -29,6 +29,7 @@ namespace TalkBot
 
             // 教育の顔選択リストボックスに選択肢を追加
             EFaceComboBox.DataSource = Enum.GetValues(typeof(TalkData.Face));
+            TalkDataView.DataSource = talkData.TalkDataList;
         }
 
         // 話しかけるボタンを押された

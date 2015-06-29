@@ -259,6 +259,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "TalkBot";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

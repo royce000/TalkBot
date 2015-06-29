@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 
 namespace TalkBot
@@ -28,7 +30,7 @@ namespace TalkBot
 
         public TalkData()
         {
-            // リストの初期化
+            
         }
 
         /// <summary>
@@ -115,6 +117,74 @@ namespace TalkBot
             return String.Format("img/Face_{0}.png", face);
         }
 
+        /// <summary>
+        /// <para>トークデータを読み込むメソッド</para>
+        /// <para>成功するとtrue, 失敗すると戻り値がfalseになります。</para>
+        /// </summary>
+        /// <returns></returns>
+        public bool LoadTalkData()
+        {
+            try
+            {
+                // 読み込んだデータを一時保存するリスト
+                System.Collections.ArrayList al = new System.Collections.ArrayList();
+
+                // データファイルへのアクセス準備
+                using (FileStream fs = new FileStream("talkData.xml", FileMode.Open))
+                {
+                    // Xml解析用インスタンスの初期化
+                    XmlSerializer ser = new XmlSerializer(typeof(System.Collections.ArrayList), new Type[] { typeof(TalkDataValue) });
+
+                    // データの読み出し
+                    al = (System.Collections.ArrayList)ser.Deserialize(fs);
+                }
+
+                // 読み出したデータを管理リストへ変換
+                for (int i = 0; i < al.Count; i++)
+                {
+                    TalkDataValue tdv = (TalkDataValue)al[i];
+
+                    talkDataList.Add(new TalkDataValue(tdv.InputText, tdv.OutputText, tdv.FaceImage));
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// <para>トークデータを保存するメソッド</para>
+        /// <para>成功するとtrue, 失敗すると戻り値がfalseになります。</para>
+        /// </summary>
+        /// <returns></returns>
+        public bool SaveTalkData()
+        {
+            try
+            {
+                // 保存するデータを一時リストへ変換
+                System.Collections.ArrayList al = new System.Collections.ArrayList();
+                al.AddRange(talkDataList);
+
+                // ファイル保存をする準備
+                using (FileStream fs = new FileStream("talkData.xml", FileMode.Create))
+                {
+                    // Xmlファイル保存用インスタンスの初期化
+                    XmlSerializer ser = new XmlSerializer(typeof(System.Collections.ArrayList), new Type[] { typeof(TalkDataValue) });
+
+                    // ファイルを保存
+                    ser.Serialize(fs, al);
+                    fs.Close();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
         #endregion
 
         #region プロパティ
@@ -127,6 +197,7 @@ namespace TalkBot
         #endregion
 
 
+        [Serializable]
         public class TalkDataValue
         {
             #region メソッド

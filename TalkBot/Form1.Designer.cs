@@ -39,13 +39,13 @@
             this.FInputTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.EFaceComboBox = new System.Windows.Forms.ComboBox();
             this.educationButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.EOutputTextBox = new System.Windows.Forms.TextBox();
             this.EInputTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.EFaceComboBox = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.facePicBox)).BeginInit();
@@ -126,8 +126,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.forgettingButton);
             this.groupBox2.Controls.Add(this.FInputTextBox);
@@ -171,8 +170,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.EFaceComboBox);
@@ -187,6 +185,27 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "教育";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 12);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "表示する顔";
+            // 
+            // EFaceComboBox
+            // 
+            this.EFaceComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EFaceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.EFaceComboBox.FormattingEnabled = true;
+            this.EFaceComboBox.Location = new System.Drawing.Point(96, 68);
+            this.EFaceComboBox.Name = "EFaceComboBox";
+            this.EFaceComboBox.Size = new System.Drawing.Size(362, 20);
+            this.EFaceComboBox.TabIndex = 5;
+            this.EFaceComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.EFaceComboBox_Format);
             // 
             // educationButton
             // 
@@ -235,27 +254,6 @@
             this.label1.Size = new System.Drawing.Size(84, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "反応する文字列";
-            // 
-            // EFaceComboBox
-            // 
-            this.EFaceComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.EFaceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.EFaceComboBox.FormattingEnabled = true;
-            this.EFaceComboBox.Location = new System.Drawing.Point(96, 68);
-            this.EFaceComboBox.Name = "EFaceComboBox";
-            this.EFaceComboBox.Size = new System.Drawing.Size(362, 20);
-            this.EFaceComboBox.TabIndex = 5;
-            this.EFaceComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.EFaceComboBox_Format);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 71);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 12);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "表示する顔";
             // 
             // Form1
             // 

@@ -36,11 +36,11 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.forgettingButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.FOutputTextBox = new System.Windows.Forms.TextBox();
             this.FInputTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.EFaceComboBox = new System.Windows.Forms.ComboBox();
             this.educationButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.EOutputTextBox = new System.Windows.Forms.TextBox();
@@ -126,48 +126,29 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.forgettingButton);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.FOutputTextBox);
             this.groupBox2.Controls.Add(this.FInputTextBox);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(6, 116);
+            this.groupBox2.Location = new System.Drawing.Point(6, 142);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(464, 104);
+            this.groupBox2.Size = new System.Drawing.Size(464, 79);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "忘却";
             // 
             // forgettingButton
             // 
-            this.forgettingButton.Location = new System.Drawing.Point(6, 68);
+            this.forgettingButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.forgettingButton.Location = new System.Drawing.Point(6, 43);
             this.forgettingButton.Name = "forgettingButton";
             this.forgettingButton.Size = new System.Drawing.Size(452, 30);
             this.forgettingButton.TabIndex = 4;
             this.forgettingButton.Text = "忘却";
             this.forgettingButton.UseVisualStyleBackColor = true;
             this.forgettingButton.Click += new System.EventHandler(this.forgettingButton_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "出力文字列";
-            // 
-            // FOutputTextBox
-            // 
-            this.FOutputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FOutputTextBox.Location = new System.Drawing.Point(96, 43);
-            this.FOutputTextBox.Name = "FOutputTextBox";
-            this.FOutputTextBox.Size = new System.Drawing.Size(362, 19);
-            this.FOutputTextBox.TabIndex = 2;
             // 
             // FInputTextBox
             // 
@@ -189,9 +170,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.EFaceComboBox);
             this.groupBox1.Controls.Add(this.educationButton);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.EOutputTextBox);
@@ -199,14 +181,37 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(464, 104);
+            this.groupBox1.Size = new System.Drawing.Size(464, 130);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "教育";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 12);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "表示する顔";
+            // 
+            // EFaceComboBox
+            // 
+            this.EFaceComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EFaceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.EFaceComboBox.FormattingEnabled = true;
+            this.EFaceComboBox.Location = new System.Drawing.Point(96, 68);
+            this.EFaceComboBox.Name = "EFaceComboBox";
+            this.EFaceComboBox.Size = new System.Drawing.Size(362, 20);
+            this.EFaceComboBox.TabIndex = 5;
+            this.EFaceComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.EFaceComboBox_Format);
+            // 
             // educationButton
             // 
-            this.educationButton.Location = new System.Drawing.Point(6, 68);
+            this.educationButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.educationButton.Location = new System.Drawing.Point(6, 94);
             this.educationButton.Name = "educationButton";
             this.educationButton.Size = new System.Drawing.Size(452, 30);
             this.educationButton.TabIndex = 4;
@@ -259,6 +264,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "TalkBot";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -288,10 +294,10 @@
         private System.Windows.Forms.Button educationButton;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button forgettingButton;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox FOutputTextBox;
         private System.Windows.Forms.TextBox FInputTextBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox EFaceComboBox;
     }
 }
 

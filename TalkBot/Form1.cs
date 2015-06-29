@@ -19,6 +19,13 @@ namespace TalkBot
         public Form1()
         {
             InitializeComponent();
+
+            // データのロード
+            if (!talkData.LoadTalkData())
+            {
+                MessageBox.Show("データのロードの失敗しました。", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
 
         // 話しかけるボタンを押された
@@ -37,6 +44,25 @@ namespace TalkBot
         private void forgettingButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        // フォームが閉じられる
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // データの保存
+            if (!talkData.SaveTalkData())
+            {
+                DialogResult dResult;
+                dResult = MessageBox.Show("データの保存に失敗しました。\r\nこのまま終了しますか？", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
+                // 閉じないを選択
+                if (dResult == DialogResult.No)
+                {
+                    e.Cancel = true;
+
+                    return;
+                }
+            }
         }
     }
 }

@@ -34,6 +34,8 @@
             this.talkTextBox = new System.Windows.Forms.TextBox();
             this.facePicBox = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.TalkDataView = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.forgettingButton = new System.Windows.Forms.Button();
             this.FInputTextBox = new System.Windows.Forms.TextBox();
@@ -50,6 +52,8 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.facePicBox)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TalkDataView)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +118,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -123,6 +128,38 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "教育";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.TalkDataView);
+            this.groupBox3.Location = new System.Drawing.Point(6, 227);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(464, 203);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "データ";
+            // 
+            // TalkDataView
+            // 
+            this.TalkDataView.AllowUserToAddRows = false;
+            this.TalkDataView.AllowUserToDeleteRows = false;
+            this.TalkDataView.AllowUserToResizeRows = false;
+            this.TalkDataView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TalkDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TalkDataView.Location = new System.Drawing.Point(6, 18);
+            this.TalkDataView.MultiSelect = false;
+            this.TalkDataView.Name = "TalkDataView";
+            this.TalkDataView.ReadOnly = true;
+            this.TalkDataView.RowHeadersVisible = false;
+            this.TalkDataView.RowTemplate.Height = 21;
+            this.TalkDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.TalkDataView.Size = new System.Drawing.Size(452, 179);
+            this.TalkDataView.TabIndex = 4;
+            this.TalkDataView.VirtualMode = true;
             // 
             // groupBox2
             // 
@@ -270,6 +307,8 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.facePicBox)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TalkDataView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -298,6 +337,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox EFaceComboBox;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView TalkDataView;
     }
 }
 

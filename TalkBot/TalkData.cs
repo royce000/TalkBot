@@ -127,6 +127,8 @@ namespace TalkBot
         {
             try
             {
+                if (!File.Exists("talkData.xml")) return true;  // ファイルがない場合
+
                 // 読み込んだデータを一時保存するリスト
                 System.Collections.ArrayList al = new System.Collections.ArrayList();
 

@@ -128,6 +128,7 @@
             this.facePicBox.Location = new System.Drawing.Point(6, 6);
             this.facePicBox.Name = "facePicBox";
             this.facePicBox.Size = new System.Drawing.Size(464, 260);
+            this.facePicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.facePicBox.TabIndex = 0;
             this.facePicBox.TabStop = false;
             // 

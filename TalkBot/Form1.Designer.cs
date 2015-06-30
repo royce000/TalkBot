@@ -48,6 +48,7 @@
             this.EOutputTextBox = new System.Windows.Forms.TextBox();
             this.EInputTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.BotText = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.facePicBox)).BeginInit();
@@ -71,6 +72,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.BotText);
             this.tabPage1.Controls.Add(this.talkButton);
             this.tabPage1.Controls.Add(this.talkTextBox);
             this.tabPage1.Controls.Add(this.facePicBox);
@@ -112,7 +114,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.facePicBox.Location = new System.Drawing.Point(6, 6);
             this.facePicBox.Name = "facePicBox";
-            this.facePicBox.Size = new System.Drawing.Size(464, 318);
+            this.facePicBox.Size = new System.Drawing.Size(464, 260);
             this.facePicBox.TabIndex = 0;
             this.facePicBox.TabStop = false;
             // 
@@ -292,6 +294,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "反応する文字列";
             // 
+            // BotText
+            // 
+            this.BotText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BotText.BackColor = System.Drawing.Color.Black;
+            this.BotText.Enabled = false;
+            this.BotText.ForeColor = System.Drawing.Color.Lime;
+            this.BotText.Location = new System.Drawing.Point(6, 272);
+            this.BotText.Multiline = true;
+            this.BotText.Name = "BotText";
+            this.BotText.ReadOnly = true;
+            this.BotText.Size = new System.Drawing.Size(464, 52);
+            this.BotText.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -339,6 +355,7 @@
         private System.Windows.Forms.ComboBox EFaceComboBox;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView TalkDataView;
+        private System.Windows.Forms.TextBox BotText;
     }
 }
 

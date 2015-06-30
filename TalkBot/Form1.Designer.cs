@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BotText = new System.Windows.Forms.TextBox();
             this.talkButton = new System.Windows.Forms.Button();
             this.talkTextBox = new System.Windows.Forms.TextBox();
             this.facePicBox = new System.Windows.Forms.PictureBox();
@@ -48,7 +49,6 @@
             this.EOutputTextBox = new System.Windows.Forms.TextBox();
             this.EInputTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.BotText = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.facePicBox)).BeginInit();
@@ -83,6 +83,19 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // BotText
+            // 
+            this.BotText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BotText.BackColor = System.Drawing.Color.Black;
+            this.BotText.ForeColor = System.Drawing.Color.Lime;
+            this.BotText.Location = new System.Drawing.Point(6, 272);
+            this.BotText.Multiline = true;
+            this.BotText.Name = "BotText";
+            this.BotText.ReadOnly = true;
+            this.BotText.Size = new System.Drawing.Size(464, 52);
+            this.BotText.TabIndex = 3;
             // 
             // talkButton
             // 
@@ -293,20 +306,6 @@
             this.label1.Size = new System.Drawing.Size(84, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "反応する文字列";
-            // 
-            // BotText
-            // 
-            this.BotText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BotText.BackColor = System.Drawing.Color.Black;
-            this.BotText.Enabled = false;
-            this.BotText.ForeColor = System.Drawing.Color.Lime;
-            this.BotText.Location = new System.Drawing.Point(6, 272);
-            this.BotText.Multiline = true;
-            this.BotText.Name = "BotText";
-            this.BotText.ReadOnly = true;
-            this.BotText.Size = new System.Drawing.Size(464, 52);
-            this.BotText.TabIndex = 3;
             // 
             // Form1
             // 

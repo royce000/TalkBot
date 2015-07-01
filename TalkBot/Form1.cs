@@ -29,13 +29,56 @@ namespace TalkBot
 
             // 教育の顔選択リストボックスに選択肢を追加
             EFaceComboBox.DataSource = Enum.GetValues(typeof(TalkData.Face));
+
+            // データリストのデータソースをセット
             TalkDataView.DataSource = talkData.TalkDataList;
+
+            // 初期の顔画像をセット
+            facePicBox.ImageLocation = talkData.GetImageFilePath(TalkData.Face.Normal);
         }
 
         // 話しかけるボタンを押された
         private void talkButton_Click(object sender, EventArgs e)
         {
+            string iText = talkTextBox.Text;    // 入力文字列を取得
 
+            // コントロールを無効化
+            talkTextBox.Enabled = false;
+            talkButton.Enabled = false;
+
+            // 入力がなかったら処理しない
+            if (iText == "")
+            {
+                // コントロールを有効化
+                talkTextBox.Enabled = true;
+                talkButton.Enabled = true;
+
+                return;
+            }
+
+
+            TalkData.TalkDataValue value;   // 返答を格納する変数
+
+            // 応答があったかを判定
+            if ((value = talkData.GetTalkResponse(iText)) == null)
+            {
+                facePicBox.ImageLocation = talkData.GetImageFilePath(TalkData.Face.Cry);    // 顔の画像を設定
+                BotText.Text = "ちょっと何を言ってるかわかりません";
+
+                // コントロールを有効化
+                talkTextBox.Enabled = true;
+                talkButton.Enabled = true;
+
+                return;
+            }
+
+            facePicBox.ImageLocation = talkData.GetImageFilePath(value.FaceImage);  // 顔の画像を設定
+            BotText.Text = value.OutputText;    // 応答文字列表示
+
+            // コントロールを有効化
+            talkTextBox.Text = "";
+            talkTextBox.Enabled = true;
+            talkButton.Enabled = true;
         }
 
         // 教育ボタンが押された

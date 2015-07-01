@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BotText = new System.Windows.Forms.TextBox();
             this.talkButton = new System.Windows.Forms.Button();
             this.talkTextBox = new System.Windows.Forms.TextBox();
             this.facePicBox = new System.Windows.Forms.PictureBox();
@@ -71,6 +72,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.BotText);
             this.tabPage1.Controls.Add(this.talkButton);
             this.tabPage1.Controls.Add(this.talkTextBox);
             this.tabPage1.Controls.Add(this.facePicBox);
@@ -81,6 +83,19 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // BotText
+            // 
+            this.BotText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BotText.BackColor = System.Drawing.Color.Black;
+            this.BotText.ForeColor = System.Drawing.Color.Lime;
+            this.BotText.Location = new System.Drawing.Point(6, 272);
+            this.BotText.Multiline = true;
+            this.BotText.Name = "BotText";
+            this.BotText.ReadOnly = true;
+            this.BotText.Size = new System.Drawing.Size(464, 52);
+            this.BotText.TabIndex = 3;
             // 
             // talkButton
             // 
@@ -112,7 +127,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.facePicBox.Location = new System.Drawing.Point(6, 6);
             this.facePicBox.Name = "facePicBox";
-            this.facePicBox.Size = new System.Drawing.Size(464, 318);
+            this.facePicBox.Size = new System.Drawing.Size(464, 260);
+            this.facePicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.facePicBox.TabIndex = 0;
             this.facePicBox.TabStop = false;
             // 
@@ -339,6 +355,7 @@
         private System.Windows.Forms.ComboBox EFaceComboBox;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView TalkDataView;
+        private System.Windows.Forms.TextBox BotText;
     }
 }
 

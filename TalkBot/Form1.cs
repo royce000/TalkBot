@@ -82,6 +82,16 @@ namespace TalkBot
             talkButton.Enabled = true;
         }
 
+        // 話しかけるテキストボックスのキーダウンイベントメソッド
+        private void talkTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                talkButton.PerformClick();
+            }
+        }
+
         // 教育ボタンが押された
         private void educationButton_Click(object sender, EventArgs e)
         {

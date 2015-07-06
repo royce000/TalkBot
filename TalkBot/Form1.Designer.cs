@@ -42,6 +42,7 @@
             this.FInputTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.FacePreviewButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.EFaceComboBox = new System.Windows.Forms.ComboBox();
             this.educationButton = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.EOutputTextBox = new System.Windows.Forms.TextBox();
             this.EInputTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.FacePreviewButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.facePicBox)).BeginInit();
@@ -120,6 +120,7 @@
             this.talkTextBox.Name = "talkTextBox";
             this.talkTextBox.Size = new System.Drawing.Size(464, 64);
             this.talkTextBox.TabIndex = 1;
+            this.talkTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.talkTextBox_KeyDown);
             // 
             // facePicBox
             // 
@@ -241,6 +242,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "教育";
             // 
+            // FacePreviewButton
+            // 
+            this.FacePreviewButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FacePreviewButton.Location = new System.Drawing.Point(378, 68);
+            this.FacePreviewButton.Name = "FacePreviewButton";
+            this.FacePreviewButton.Size = new System.Drawing.Size(80, 23);
+            this.FacePreviewButton.TabIndex = 7;
+            this.FacePreviewButton.Text = "顔のプレビュー";
+            this.FacePreviewButton.UseVisualStyleBackColor = true;
+            this.FacePreviewButton.Click += new System.EventHandler(this.FacePreviewButton_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -310,17 +322,6 @@
             this.label1.Size = new System.Drawing.Size(84, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "反応する文字列";
-            // 
-            // FacePreviewButton
-            // 
-            this.FacePreviewButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FacePreviewButton.Location = new System.Drawing.Point(378, 68);
-            this.FacePreviewButton.Name = "FacePreviewButton";
-            this.FacePreviewButton.Size = new System.Drawing.Size(80, 23);
-            this.FacePreviewButton.TabIndex = 7;
-            this.FacePreviewButton.Text = "顔のプレビュー";
-            this.FacePreviewButton.UseVisualStyleBackColor = true;
-            this.FacePreviewButton.Click += new System.EventHandler(this.FacePreviewButton_Click);
             // 
             // Form1
             // 

@@ -16,10 +16,13 @@ namespace TalkBot
         // コンピューターの表情画像用定数
         public enum Face
         {
-            Normal,     // 通常時の顔
-            Smile,      // 笑顔
-            Angry,      // 怒り顔
-            Cry         // 泣き顔
+            Normal,         // 通常時の顔
+            Smile,          // 笑顔
+            Angry,          // 怒り顔
+            Cry,            // 泣き顔
+            Love,           // ハート顔
+            Wink,           // ウィンクの顔
+            Deconditioning  // 体調不良の顔
         }
 
 
@@ -31,7 +34,7 @@ namespace TalkBot
 
         public TalkData()
         {
-            
+
         }
 
         /// <summary>

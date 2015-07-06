@@ -208,6 +208,12 @@ namespace TalkBot
                     e.Value = "ノーマル"; break;
                 case TalkData.Face.Smile:
                     e.Value = "笑顔"; break;
+                case TalkData.Face.Love:
+                    e.Value = "好き"; break;
+                case TalkData.Face.Wink:
+                    e.Value = "ウィンク"; break;
+                case TalkData.Face.Deconditioning:
+                    e.Value = "うぇぇ・・の顔"; break;
             }
         }
     }

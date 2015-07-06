@@ -14,6 +14,7 @@ namespace TalkBot
     public partial class Form1 : Form
     {
         private TalkData talkData = new TalkData();
+        private ImagePreviewForm imagePreForm = null;
 
 
         public Form1()
@@ -81,6 +82,16 @@ namespace TalkBot
             talkButton.Enabled = true;
         }
 
+        // 話しかけるテキストボックスのキーダウンイベントメソッド
+        private void talkTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                talkButton.PerformClick();
+            }
+        }
+
         // 教育ボタンが押された
         private void educationButton_Click(object sender, EventArgs e)
         {
@@ -104,6 +115,37 @@ namespace TalkBot
 
             EInputTextBox.Text = "";
             EOutputTextBox.Text = "";
+        }
+
+        // 教育の顔選択が変更時のイベントメソッド
+        private void EFaceComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (imagePreForm != null)
+            {
+                imagePreForm.ChangeImage(talkData.GetImageFilePath((TalkData.Face)EFaceComboBox.SelectedValue));
+            }
+        }
+
+        // 顔の画像プレビューボタン
+        private void FacePreviewButton_Click(object sender, EventArgs e)
+        {
+            if (imagePreForm == null)
+            {
+                imagePreForm = new ImagePreviewForm();
+                imagePreForm.ChangeImage(talkData.GetImageFilePath((TalkData.Face)EFaceComboBox.SelectedValue));
+                imagePreForm.FormClosed += new FormClosedEventHandler(ImagePreviewFormClosed);
+                imagePreForm.Show(this);
+            }
+            else
+            {
+                imagePreForm.ChangeImage(talkData.GetImageFilePath((TalkData.Face)EFaceComboBox.SelectedValue));
+            }
+        }
+
+        // プレビューフォームの閉じられるイベントメソッド
+        private void ImagePreviewFormClosed(object sender, FormClosedEventArgs e)
+        {
+            imagePreForm = null;
         }
 
         // 忘却ボタンが押された

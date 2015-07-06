@@ -49,6 +49,7 @@
             this.EOutputTextBox = new System.Windows.Forms.TextBox();
             this.EInputTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.FacePreviewButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.facePicBox)).BeginInit();
@@ -225,6 +226,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.FacePreviewButton);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.EFaceComboBox);
             this.groupBox1.Controls.Add(this.educationButton);
@@ -234,7 +236,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(464, 130);
+            this.groupBox1.Size = new System.Drawing.Size(464, 133);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "教育";
@@ -242,7 +244,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 71);
+            this.label5.Location = new System.Drawing.Point(6, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 12);
             this.label5.TabIndex = 6;
@@ -254,17 +256,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EFaceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.EFaceComboBox.FormattingEnabled = true;
-            this.EFaceComboBox.Location = new System.Drawing.Point(96, 68);
+            this.EFaceComboBox.Location = new System.Drawing.Point(96, 70);
             this.EFaceComboBox.Name = "EFaceComboBox";
-            this.EFaceComboBox.Size = new System.Drawing.Size(362, 20);
+            this.EFaceComboBox.Size = new System.Drawing.Size(276, 20);
             this.EFaceComboBox.TabIndex = 5;
+            this.EFaceComboBox.SelectedIndexChanged += new System.EventHandler(this.EFaceComboBox_SelectedIndexChanged);
             this.EFaceComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.EFaceComboBox_Format);
             // 
             // educationButton
             // 
             this.educationButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.educationButton.Location = new System.Drawing.Point(6, 94);
+            this.educationButton.Location = new System.Drawing.Point(6, 97);
             this.educationButton.Name = "educationButton";
             this.educationButton.Size = new System.Drawing.Size(452, 30);
             this.educationButton.TabIndex = 4;
@@ -307,6 +310,17 @@
             this.label1.Size = new System.Drawing.Size(84, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "反応する文字列";
+            // 
+            // FacePreviewButton
+            // 
+            this.FacePreviewButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FacePreviewButton.Location = new System.Drawing.Point(378, 68);
+            this.FacePreviewButton.Name = "FacePreviewButton";
+            this.FacePreviewButton.Size = new System.Drawing.Size(80, 23);
+            this.FacePreviewButton.TabIndex = 7;
+            this.FacePreviewButton.Text = "顔のプレビュー";
+            this.FacePreviewButton.UseVisualStyleBackColor = true;
+            this.FacePreviewButton.Click += new System.EventHandler(this.FacePreviewButton_Click);
             // 
             // Form1
             // 
@@ -356,6 +370,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView TalkDataView;
         private System.Windows.Forms.TextBox BotText;
+        private System.Windows.Forms.Button FacePreviewButton;
     }
 }
 

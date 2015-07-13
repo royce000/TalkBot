@@ -201,7 +201,7 @@ namespace TalkBot
             DialogResult dResult;
             dResult = MessageBox.Show("本当に削除しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-            // 閉じないを選択
+            // Noを選択
             if (dResult == DialogResult.No)
             {
                 return;
@@ -308,6 +308,49 @@ namespace TalkBot
                     else
                         facePicBox.ImageLocation = talkData.GetImageFilePath(value.FaceImage);
                     BotText.Text = value.OutputText;    // 応答文字列表示
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        // 右クリックコピーイベントメソッド
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(TalkDataView.CurrentCell.Value.ToString());
+            }
+            catch
+            {
+
+            }
+        }
+
+        // 右クリック削除イベントメソッド
+        private void SelectItemDeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dResult;
+                dResult = MessageBox.Show("本当に削除しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                // Noを選択
+                if (dResult == DialogResult.No)
+                {
+                    return;
+                }
+
+                TalkData.TalkDataValue tdv = TalkDataView.CurrentRow.DataBoundItem as TalkData.TalkDataValue;
+                string iText = tdv.InputText;
+
+                // データの削除
+                if (!talkData.DeleteTalkData(iText))
+                {
+                    MessageBox.Show("削除失敗しました", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             catch

@@ -222,13 +222,13 @@ namespace TalkBot
         {
             if (AutoTalkCheckBox.Checked)
             {
-                ChaosTalkCheckBox.Enabled = false;
-                AutoTalkTimer.Enabled = false;
+                ChaosTalkCheckBox.Enabled = true;
+                AutoTalkTimer.Enabled = true;
             }
             else
             {
-                ChaosTalkCheckBox.Enabled = true;
-                AutoTalkTimer.Enabled = true;
+                ChaosTalkCheckBox.Enabled = false;
+                AutoTalkTimer.Enabled = false;
             }
         }
 

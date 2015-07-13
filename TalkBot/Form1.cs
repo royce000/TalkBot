@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 
 namespace TalkBot
@@ -22,6 +24,7 @@ namespace TalkBot
             InitializeComponent();
 
             // データのロード
+            LoadFormSetting();
             if (!talkData.LoadTalkData())
             {
                 MessageBox.Show("データのロードの失敗しました。", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -35,7 +38,15 @@ namespace TalkBot
             TalkDataView.DataSource = talkData.TalkDataList;
 
             // 初期の顔画像をセット
-            facePicBox.ImageLocation = talkData.GetImageFilePath(TalkData.Face.Normal);
+            if (talkData.IsCache)
+                facePicBox.Image = talkData.GetFaceImage(TalkData.Face.Normal);
+            else
+                facePicBox.ImageLocation = talkData.GetImageFilePath(TalkData.Face.Normal);
+
+            if (talkData.IsCache)
+                label3.Text = "キャッシュ済み";
+            else
+                label3.Text = "キャッシュ未生成";
         }
 
         // 話しかけるボタンを押された
@@ -46,6 +57,7 @@ namespace TalkBot
             // コントロールを無効化
             talkTextBox.Enabled = false;
             talkButton.Enabled = false;
+            AutoTalkTimer.Enabled = false;
 
             // 入力がなかったら処理しない
             if (iText == "")
@@ -63,7 +75,11 @@ namespace TalkBot
             // 応答があったかを判定
             if ((value = talkData.GetTalkResponse(iText)) == null)
             {
-                facePicBox.ImageLocation = talkData.GetImageFilePath(TalkData.Face.Cry);    // 顔の画像を設定
+                // 顔の画像を設定  
+                if (talkData.IsCache)
+                    facePicBox.Image = talkData.GetFaceImage(TalkData.Face.Cry);
+                else
+                    facePicBox.ImageLocation = talkData.GetImageFilePath(TalkData.Face.Cry);
                 BotText.Text = "ちょっと何を言ってるかわかりません";
 
                 // コントロールを有効化
@@ -73,13 +89,18 @@ namespace TalkBot
                 return;
             }
 
-            facePicBox.ImageLocation = talkData.GetImageFilePath(value.FaceImage);  // 顔の画像を設定
+            // 顔の画像を設定
+            if (talkData.IsCache)
+                facePicBox.Image = talkData.GetFaceImage(value.FaceImage);
+            else
+                facePicBox.ImageLocation = talkData.GetImageFilePath(value.FaceImage);
             BotText.Text = value.OutputText;    // 応答文字列表示
 
             // コントロールを有効化
             talkTextBox.Text = "";
             talkTextBox.Enabled = true;
             talkButton.Enabled = true;
+            AutoTalkTimer.Enabled = true;
         }
 
         // 話しかけるテキストボックスのキーダウンイベントメソッド
@@ -89,6 +110,21 @@ namespace TalkBot
             {
                 e.SuppressKeyPress = true;
                 talkButton.PerformClick();
+            }
+        }
+
+        // キャッシュ生成ボタン
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (talkData.CreateImageCache())
+            {
+                label3.Text = "キャッシュ済み";
+                MessageBox.Show("キャッシュを生成しました");
+            }
+            else
+            {
+                label3.Text = "キャッシュ未生成";
+                MessageBox.Show("キャッシュの生成に失敗しました");
             }
         }
 
@@ -132,13 +168,19 @@ namespace TalkBot
             if (imagePreForm == null)
             {
                 imagePreForm = new ImagePreviewForm();
-                imagePreForm.ChangeImage(talkData.GetImageFilePath((TalkData.Face)EFaceComboBox.SelectedValue));
+                if (talkData.IsCache)
+                    imagePreForm.ChangeImage(talkData.GetFaceImage((TalkData.Face)EFaceComboBox.SelectedValue));
+                else
+                    imagePreForm.ChangeImage(talkData.GetImageFilePath((TalkData.Face)EFaceComboBox.SelectedValue));
                 imagePreForm.FormClosed += new FormClosedEventHandler(ImagePreviewFormClosed);
                 imagePreForm.Show(this);
             }
             else
             {
-                imagePreForm.ChangeImage(talkData.GetImageFilePath((TalkData.Face)EFaceComboBox.SelectedValue));
+                if (talkData.IsCache)
+                    imagePreForm.ChangeImage(talkData.GetFaceImage((TalkData.Face)EFaceComboBox.SelectedValue));
+                else
+                    imagePreForm.ChangeImage(talkData.GetImageFilePath((TalkData.Face)EFaceComboBox.SelectedValue));
             }
         }
 
@@ -175,10 +217,26 @@ namespace TalkBot
             FInputTextBox.Text = "";
         }
 
+        // 自動トークモードのチェック状態変化
+        private void AutoTalkCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (AutoTalkCheckBox.Checked)
+            {
+                ChaosTalkCheckBox.Enabled = false;
+                AutoTalkTimer.Enabled = false;
+            }
+            else
+            {
+                ChaosTalkCheckBox.Enabled = true;
+                AutoTalkTimer.Enabled = true;
+            }
+        }
+
         // フォームが閉じられる
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             // データの保存
+            SaveFormSetting();
             if (!talkData.SaveTalkData())
             {
                 DialogResult dResult;
@@ -191,6 +249,68 @@ namespace TalkBot
 
                     return;
                 }
+            }
+        }
+
+        // 自動でしゃべるタイマー
+        private void AutoTalkTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                Random rdm = new Random();
+
+                // カオスモードではない
+                if (!ChaosTalkCheckBox.Checked)
+                {
+                    switch (rdm.Next(3))
+                    {
+                        case 0:
+                            // 顔の画像を設定
+                            if (talkData.IsCache)
+                                facePicBox.Image = talkData.GetFaceImage(TalkData.Face.Smile);
+                            else
+                                facePicBox.ImageLocation = talkData.GetImageFilePath(TalkData.Face.Smile);
+                            BotText.Text = "何か質問ある？";
+                            break;
+
+                        case 1:
+                            // 顔の画像を設定
+                            if (talkData.IsCache)
+                                facePicBox.Image = talkData.GetFaceImage(TalkData.Face.Normal);
+                            else
+                                facePicBox.ImageLocation = talkData.GetImageFilePath(TalkData.Face.Normal);
+                            BotText.Text = "ひまだなぁ";
+                            break;
+
+                        case 2:
+                            // 顔の画像を設定
+                            if (talkData.IsCache)
+                                facePicBox.Image = talkData.GetFaceImage(TalkData.Face.Deconditioning);
+                            else
+                                facePicBox.ImageLocation = talkData.GetImageFilePath(TalkData.Face.Deconditioning);
+                            BotText.Text = "もしかして・・・放置・・・？";
+                            break;
+                    }
+                }
+                else
+                {
+                    TalkData.TalkDataValue value;   // 返答を格納する変数
+
+                    // ランダムに文字列をゲット
+                    int selectIndex = rdm.Next(talkData.TalkDataList.Count);
+
+                    value = talkData.TalkDataList[selectIndex];
+                    // 顔の画像を設定
+                    if (talkData.IsCache)
+                        facePicBox.Image = talkData.GetFaceImage(value.FaceImage);
+                    else
+                        facePicBox.ImageLocation = talkData.GetImageFilePath(value.FaceImage);
+                    BotText.Text = value.OutputText;    // 応答文字列表示
+                }
+            }
+            catch
+            {
+
             }
         }
 
@@ -216,5 +336,76 @@ namespace TalkBot
                     e.Value = "うぇぇ・・の顔"; break;
             }
         }
+
+        private bool LoadFormSetting()
+        {
+            try
+            {
+                if (!File.Exists("FormData.xml")) return true;  // ファイルがない場合
+
+                // フォームのデータクラス初期化
+                FormConfig fc = new FormConfig();
+
+                // データファイルへのアクセス準備
+                using (FileStream fs = new FileStream("FormData.xml", FileMode.Open))
+                {
+                    // Xml解析用インスタンスの初期化
+                    XmlSerializer ser = new XmlSerializer(typeof(FormConfig));
+
+                    // データの読み出し
+                    fc = (FormConfig)ser.Deserialize(fs);
+                }
+
+                // データを復元
+                AutoTalkCheckBox.Checked = fc.isAutoTalk;
+                ChaosTalkCheckBox.Checked = fc.isChaosTalk;
+
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Formの設定データを保存するメソッド
+        /// </summary>
+        /// <returns></returns>
+        private bool SaveFormSetting()
+        {
+            try
+            {
+                // フォームのデータクラス初期化
+                FormConfig fc = new FormConfig();
+                fc.isAutoTalk = AutoTalkCheckBox.Checked;
+                fc.isChaosTalk = ChaosTalkCheckBox.Checked;
+
+                // ファイル保存をする準備
+                using (FileStream fs = new FileStream("FormData.xml", FileMode.Create))
+                {
+                    // Xmlファイル保存用インスタンスの初期化
+                    XmlSerializer ser = new XmlSerializer(typeof(FormConfig));
+
+                    // ファイルを保存
+                    ser.Serialize(fs, fc);
+                    fs.Close();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+    }
+
+    [Serializable]
+    public class FormConfig
+    {
+        public bool isAutoTalk { get; set; }
+        public bool isChaosTalk { get; set; }
     }
 }

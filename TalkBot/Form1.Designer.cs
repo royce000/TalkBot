@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BotText = new System.Windows.Forms.TextBox();
@@ -50,6 +51,12 @@
             this.EOutputTextBox = new System.Windows.Forms.TextBox();
             this.EInputTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.ChaosTalkCheckBox = new System.Windows.Forms.CheckBox();
+            this.AutoTalkCheckBox = new System.Windows.Forms.CheckBox();
+            this.AutoTalkTimer = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.facePicBox)).BeginInit();
@@ -58,12 +65,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.TalkDataView)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -323,6 +332,68 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "反応する文字列";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.ChaosTalkCheckBox);
+            this.tabPage3.Controls.Add(this.AutoTalkCheckBox);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(476, 436);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "設定";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // ChaosTalkCheckBox
+            // 
+            this.ChaosTalkCheckBox.AutoSize = true;
+            this.ChaosTalkCheckBox.Location = new System.Drawing.Point(6, 28);
+            this.ChaosTalkCheckBox.Name = "ChaosTalkCheckBox";
+            this.ChaosTalkCheckBox.Size = new System.Drawing.Size(77, 16);
+            this.ChaosTalkCheckBox.TabIndex = 1;
+            this.ChaosTalkCheckBox.Text = "カオストーク";
+            this.ChaosTalkCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // AutoTalkCheckBox
+            // 
+            this.AutoTalkCheckBox.AutoSize = true;
+            this.AutoTalkCheckBox.Checked = true;
+            this.AutoTalkCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AutoTalkCheckBox.Location = new System.Drawing.Point(6, 6);
+            this.AutoTalkCheckBox.Name = "AutoTalkCheckBox";
+            this.AutoTalkCheckBox.Size = new System.Drawing.Size(102, 16);
+            this.AutoTalkCheckBox.TabIndex = 0;
+            this.AutoTalkCheckBox.Text = "自動トークモード";
+            this.AutoTalkCheckBox.UseVisualStyleBackColor = true;
+            this.AutoTalkCheckBox.CheckedChanged += new System.EventHandler(this.AutoTalkCheckBox_CheckedChanged);
+            // 
+            // AutoTalkTimer
+            // 
+            this.AutoTalkTimer.Enabled = true;
+            this.AutoTalkTimer.Interval = 10000;
+            this.AutoTalkTimer.Tick += new System.EventHandler(this.AutoTalkTimer_Tick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(373, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "キャッシュ生成";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(371, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 12);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "キャッシュ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -344,6 +415,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -372,6 +445,12 @@
         private System.Windows.Forms.DataGridView TalkDataView;
         private System.Windows.Forms.TextBox BotText;
         private System.Windows.Forms.Button FacePreviewButton;
+        private System.Windows.Forms.Timer AutoTalkTimer;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.CheckBox AutoTalkCheckBox;
+        private System.Windows.Forms.CheckBox ChaosTalkCheckBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
     }
 }
 

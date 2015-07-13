@@ -38,6 +38,7 @@ namespace TalkBot
             TalkDataView.DataSource = talkData.TalkDataList;
 
             // 初期の顔画像をセット
+            CheckImageFile();   // 画像のチェック
             if (talkData.IsCache)
                 facePicBox.Image = talkData.GetFaceImage(TalkData.Face.Normal);
             else
@@ -116,6 +117,7 @@ namespace TalkBot
         // キャッシュ生成ボタン
         private void button1_Click(object sender, EventArgs e)
         {
+            CheckImageFile();   //画像ファイルのチェック
             if (talkData.CreateImageCache())
             {
                 label3.Text = "キャッシュ済み";
@@ -311,6 +313,32 @@ namespace TalkBot
             catch
             {
 
+            }
+        }
+
+        /// <summary>
+        /// 顔の画像があるかチェックするメソッド
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckImageFile()
+        {
+            try
+            {
+                for (int i = 0; i < EFaceComboBox.Items.Count; i++)
+                {
+                    if (!File.Exists(talkData.GetImageFilePath((TalkData.Face)EFaceComboBox.Items[i])))
+                    {
+                        MessageBox.Show(EFaceComboBox.Items[i].ToString() + "（" + talkData.GetImageFilePath((TalkData.Face)EFaceComboBox.Items[i]) + "）" + "の画像ファイルがありません。");
+                    }
+                }
+
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("イメージファイルチェック中にエラーが発生しました");
+
+                return false;
             }
         }
 

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,7 +28,10 @@ namespace TalkBot
         }
 
 
-        private BindingList<TalkDataValue> talkDataList = new BindingList<TalkDataValue>();   // 会話で使用する言葉データを保持するリスト
+        private BindingList<TalkDataValue> talkDataList = new BindingList<TalkDataValue>(); // 会話で使用する言葉データを保持するリスト
+        private Dictionary<Face, Image> faceImageCache = new Dictionary<Face, Image>(); // 顔画像のキャッシュ
+
+        private bool isCache = false;   // 画像ファイルがキャッシュ済みか
 
 
 
@@ -34,7 +39,7 @@ namespace TalkBot
 
         public TalkData()
         {
-
+            CreateImageCache();
         }
 
         /// <summary>
@@ -191,6 +196,55 @@ namespace TalkBot
             return true;
         }
 
+        /// <summary>
+        /// 画像ファイルのキャッシュを生成
+        /// </summary>
+        /// <returns></returns>
+        public bool CreateImageCache()
+        {
+            try
+            {
+                ArrayList al = new ArrayList(Enum.GetValues(typeof(Face)));
+                isCache = false;
+                faceImageCache.Clear();
+
+                for (int i = 0; i < al.Count; i++)
+                {
+                    Image img = Image.FromFile(GetImageFilePath((Face)al[i]));
+
+                    faceImageCache.Add((Face)al[i], img);
+                }
+            }
+            catch
+            {
+                isCache = false;
+                return false;
+            }
+
+            isCache = true;
+            return true;
+        }
+
+        /// <summary>
+        /// 顔の画像を取得
+        /// </summary>
+        /// <param name="face"></param>
+        /// <returns></returns>
+        public Image GetFaceImage(Face face)
+        {
+            try
+            {
+                if (!isCache)
+                    return null;
+
+                return faceImageCache[face];
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         #endregion
 
         #region プロパティ
@@ -199,6 +253,11 @@ namespace TalkBot
         /// 会話で使用する言葉のデータリストを取得
         /// </summary>
         public BindingList<TalkDataValue> TalkDataList { get { return talkDataList; } }
+
+        /// <summary>
+        /// 画像ファイルがキャッシュ済みかのフラグ
+        /// </summary>
+        public bool IsCache { get { return isCache; } }
 
         #endregion
 

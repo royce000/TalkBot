@@ -26,5 +26,14 @@ namespace TalkBot
         {
             PreviewImageBox.ImageLocation = imgPath;
         }
+
+        /// <summary>
+        /// 画像プレビューコントロールに画像を設定するメソッド
+        /// </summary>
+        /// <param name="imgPath">画像</param>
+        public void ChangeImage(Image img)
+        {
+            PreviewImageBox.Image = img;
+        }
     }
 }

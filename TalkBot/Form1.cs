@@ -38,6 +38,7 @@ namespace TalkBot
             TalkDataView.DataSource = talkData.TalkDataList;
 
             // 初期の顔画像をセット
+            CheckImageFile();   // 画像のチェック
             if (talkData.IsCache)
                 facePicBox.Image = talkData.GetFaceImage(TalkData.Face.Normal);
             else
@@ -116,6 +117,7 @@ namespace TalkBot
         // キャッシュ生成ボタン
         private void button1_Click(object sender, EventArgs e)
         {
+            CheckImageFile();   //画像ファイルのチェック
             if (talkData.CreateImageCache())
             {
                 label3.Text = "キャッシュ済み";
@@ -199,7 +201,7 @@ namespace TalkBot
             DialogResult dResult;
             dResult = MessageBox.Show("本当に削除しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-            // 閉じないを選択
+            // Noを選択
             if (dResult == DialogResult.No)
             {
                 return;
@@ -222,13 +224,13 @@ namespace TalkBot
         {
             if (AutoTalkCheckBox.Checked)
             {
-                ChaosTalkCheckBox.Enabled = false;
-                AutoTalkTimer.Enabled = false;
+                ChaosTalkCheckBox.Enabled = true;
+                AutoTalkTimer.Enabled = true;
             }
             else
             {
-                ChaosTalkCheckBox.Enabled = true;
-                AutoTalkTimer.Enabled = true;
+                ChaosTalkCheckBox.Enabled = false;
+                AutoTalkTimer.Enabled = false;
             }
         }
 
@@ -311,6 +313,75 @@ namespace TalkBot
             catch
             {
 
+            }
+        }
+
+        // 右クリックコピーイベントメソッド
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(TalkDataView.CurrentCell.Value.ToString());
+            }
+            catch
+            {
+
+            }
+        }
+
+        // 右クリック削除イベントメソッド
+        private void SelectItemDeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dResult;
+                dResult = MessageBox.Show("本当に削除しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                // Noを選択
+                if (dResult == DialogResult.No)
+                {
+                    return;
+                }
+
+                TalkData.TalkDataValue tdv = TalkDataView.CurrentRow.DataBoundItem as TalkData.TalkDataValue;
+                string iText = tdv.InputText;
+
+                // データの削除
+                if (!talkData.DeleteTalkData(iText))
+                {
+                    MessageBox.Show("削除失敗しました", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// 顔の画像があるかチェックするメソッド
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckImageFile()
+        {
+            try
+            {
+                for (int i = 0; i < EFaceComboBox.Items.Count; i++)
+                {
+                    if (!File.Exists(talkData.GetImageFilePath((TalkData.Face)EFaceComboBox.Items[i])))
+                    {
+                        MessageBox.Show(EFaceComboBox.Items[i].ToString() + "（" + talkData.GetImageFilePath((TalkData.Face)EFaceComboBox.Items[i]) + "）" + "の画像ファイルがありません。");
+                    }
+                }
+
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("イメージファイルチェック中にエラーが発生しました");
+
+                return false;
             }
         }
 

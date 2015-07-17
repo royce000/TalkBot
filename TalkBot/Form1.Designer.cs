@@ -38,6 +38,9 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TalkDataView = new System.Windows.Forms.DataGridView();
+            this.DataViewMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.CopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SelectItemDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.forgettingButton = new System.Windows.Forms.Button();
             this.FInputTextBox = new System.Windows.Forms.TextBox();
@@ -52,17 +55,18 @@
             this.EInputTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.ChaosTalkCheckBox = new System.Windows.Forms.CheckBox();
             this.AutoTalkCheckBox = new System.Windows.Forms.CheckBox();
             this.AutoTalkTimer = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.facePicBox)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TalkDataView)).BeginInit();
+            this.DataViewMenuStrip.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -177,16 +181,39 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TalkDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TalkDataView.ContextMenuStrip = this.DataViewMenuStrip;
             this.TalkDataView.Location = new System.Drawing.Point(6, 18);
             this.TalkDataView.MultiSelect = false;
             this.TalkDataView.Name = "TalkDataView";
             this.TalkDataView.ReadOnly = true;
             this.TalkDataView.RowHeadersVisible = false;
             this.TalkDataView.RowTemplate.Height = 21;
-            this.TalkDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.TalkDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.TalkDataView.Size = new System.Drawing.Size(452, 179);
             this.TalkDataView.TabIndex = 4;
             this.TalkDataView.VirtualMode = true;
+            // 
+            // DataViewMenuStrip
+            // 
+            this.DataViewMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CopyToolStripMenuItem,
+            this.SelectItemDeleteToolStripMenuItem});
+            this.DataViewMenuStrip.Name = "DataViewMenuStrip";
+            this.DataViewMenuStrip.Size = new System.Drawing.Size(173, 70);
+            // 
+            // CopyToolStripMenuItem
+            // 
+            this.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem";
+            this.CopyToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.CopyToolStripMenuItem.Text = "選択項目のコピー";
+            this.CopyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
+            // 
+            // SelectItemDeleteToolStripMenuItem
+            // 
+            this.SelectItemDeleteToolStripMenuItem.Name = "SelectItemDeleteToolStripMenuItem";
+            this.SelectItemDeleteToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.SelectItemDeleteToolStripMenuItem.Text = "選択行の削除";
+            this.SelectItemDeleteToolStripMenuItem.Click += new System.EventHandler(this.SelectItemDeleteToolStripMenuItem_Click);
             // 
             // groupBox2
             // 
@@ -346,6 +373,25 @@
             this.tabPage3.Text = "設定";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(371, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 12);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "キャッシュ";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(373, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "キャッシュ生成";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ChaosTalkCheckBox
             // 
             this.ChaosTalkCheckBox.AutoSize = true;
@@ -375,25 +421,6 @@
             this.AutoTalkTimer.Interval = 10000;
             this.AutoTalkTimer.Tick += new System.EventHandler(this.AutoTalkTimer_Tick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(373, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "キャッシュ生成";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(371, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 12);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "キャッシュ";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -411,6 +438,7 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TalkDataView)).EndInit();
+            this.DataViewMenuStrip.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -451,6 +479,9 @@
         private System.Windows.Forms.CheckBox ChaosTalkCheckBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ContextMenuStrip DataViewMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem CopyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SelectItemDeleteToolStripMenuItem;
     }
 }
 

@@ -2,162 +2,92 @@
 <ArrayOfAnyType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <anyType xsi:type="TalkDataValue">
     <InputText>おはよう</InputText>
-    <OutputText>おはよう</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>おやすみ</InputText>
-    <OutputText>おやすみ</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>ヤッホー</InputText>
-    <OutputText>ヤッホー</OutputText>
+    <OutputText>君の顔を見るのは太陽と言うなの神の眼が沈んで以来だね</OutputText>
     <FaceImage>Smile</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>やっほー</InputText>
-    <OutputText>やっほー</OutputText>
-    <FaceImage>Smile</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>明日晴れだって</InputText>
-    <OutputText>わーい、やったー</OutputText>
-    <FaceImage>Smile</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>あした晴れだって</InputText>
-    <OutputText>わーいやったー</OutputText>
-    <FaceImage>Smile</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>明日雨だって</InputText>
-    <OutputText>えーなんでー</OutputText>
-    <FaceImage>Cry</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>あした雨だって</InputText>
-    <OutputText>えーなんでー</OutputText>
-    <FaceImage>Cry</FaceImage>
   </anyType>
   <anyType xsi:type="TalkDataValue">
     <InputText>こんにちは</InputText>
-    <OutputText>こんにちは</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>君頭いいね</InputText>
-    <OutputText>ありがとう</OutputText>
+    <OutputText>やぁ。この時間に会うのは初めまして…かな？</OutputText>
     <FaceImage>Smile</FaceImage>
   </anyType>
   <anyType xsi:type="TalkDataValue">
-    <InputText>きみ頭いいね</InputText>
-    <OutputText>ありがとう</OutputText>
+    <InputText>こんばんは</InputText>
+    <OutputText>暗黒の月夜に会うなんて君も不運だね</OutputText>
     <FaceImage>Smile</FaceImage>
   </anyType>
   <anyType xsi:type="TalkDataValue">
-    <InputText>お早う</InputText>
-    <OutputText>お早う</OutputText>
+    <InputText>さようなら</InputText>
+    <OutputText>Auf Wiedersehen</OutputText>
     <FaceImage>Normal</FaceImage>
   </anyType>
   <anyType xsi:type="TalkDataValue">
-    <InputText>お休み</InputText>
-    <OutputText>お休み</OutputText>
+    <InputText>ひさしぶり</InputText>
+    <OutputText>また会ったな...覚えてるか？前の世界で俺たちが共に戦ったことを...</OutputText>
     <FaceImage>Normal</FaceImage>
   </anyType>
   <anyType xsi:type="TalkDataValue">
-    <InputText>この服どう？</InputText>
-    <OutputText>似合ってると思うよ</OutputText>
-    <FaceImage>Smile</FaceImage>
+    <InputText>ありがとう</InputText>
+    <OutputText>貴様に神の祝福があらんことを</OutputText>
+    <FaceImage>Wink</FaceImage>
   </anyType>
   <anyType xsi:type="TalkDataValue">
-    <InputText>病院行ったら</InputText>
-    <OutputText>お前がな</OutputText>
+    <InputText>すきなたべもの</InputText>
+    <OutputText>月白に包まれし闇の紅果実</OutputText>
+    <FaceImage>Love</FaceImage>
+  </anyType>
+  <anyType xsi:type="TalkDataValue">
+    <InputText>ごめんね</InputText>
+    <OutputText>これだから人間は...</OutputText>
     <FaceImage>Angry</FaceImage>
   </anyType>
   <anyType xsi:type="TalkDataValue">
-    <InputText>お前頭悪いね</InputText>
-    <OutputText>お前もな</OutputText>
-    <FaceImage>Angry</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>しりとり</InputText>
-    <OutputText>りんご</OutputText>
+    <InputText>だれ？</InputText>
+    <OutputText>俺？お前らより少し進んだ生命体だよ...</OutputText>
     <FaceImage>Normal</FaceImage>
   </anyType>
   <anyType xsi:type="TalkDataValue">
-    <InputText>ごりら</InputText>
-    <OutputText>ラッパ</OutputText>
+    <InputText>また明日</InputText>
+    <OutputText>僕はついていけるだろうか君のいない世界のスピードに…</OutputText>
     <FaceImage>Normal</FaceImage>
   </anyType>
   <anyType xsi:type="TalkDataValue">
-    <InputText>パンダ</InputText>
-    <OutputText>ダチョウ</OutputText>
+    <InputText>課題おわった</InputText>
+    <OutputText>自由ってのは眩しいものだな…</OutputText>
+    <FaceImage>Wink</FaceImage>
+  </anyType>
+  <anyType xsi:type="TalkDataValue">
+    <InputText>倒す</InputText>
+    <OutputText>いつか、誰かが私を打ち負かすだろう。だがそれは今日ではないし、お前にでもない。</OutputText>
+    <FaceImage>Smile</FaceImage>
+  </anyType>
+  <anyType xsi:type="TalkDataValue">
+    <InputText>無限の剣製</InputText>
+    <OutputText>I am bone of my sword.体は剣で出来ている。Steel is my body, and fire is my blood血潮は鉄で、心は硝子。I have created over a thousand blades.幾たびの戦場を越えて不敗。Unaware of loss.ただ一度の敗走もなく、Nor aware of gain.ただ一度の勝利もなし。Withstood pain to create weapons waiting for one's arrival.担い手はここに独り剣の丘で鉄を鍛つ。I have no regrets.This is the only path.ならば、我が生涯に意味は要ず。My whole life was"unlimited blade works."この体は、"無限の剣で出来ていた"。</OutputText>
     <FaceImage>Normal</FaceImage>
   </anyType>
   <anyType xsi:type="TalkDataValue">
-    <InputText>ウサギ</InputText>
-    <OutputText>ギンギツネ</OutputText>
+    <InputText>ヤンデレ</InputText>
+    <OutputText>One for All.　All for One. みーんなが一人のため、一人がみーんなのため。 私にとってそんな場所でした。 keep it Real,Thanks 2ch ずっとそのままで、最後は笑顔で。ありがとっ。 </OutputText>
+    <FaceImage>Smile</FaceImage>
+  </anyType>
+  <anyType xsi:type="TalkDataValue">
+    <InputText>おしえて</InputText>
+    <OutputText>『受け入れることだよ』 『善吉ちゃん』 『不条理を』 『理不尽を』 『嘘泣きを』 『言い訳を』 『いかがわしさを』 『インチキを』 『堕落を』 『混雑を』 『偽善を』 『偽悪を』 『不幸せを』 『不都合を』 『冤罪を』 『流れ弾を』 『見苦しさを』 『みっともなさを』 『風評を』 『密告を』 『嫉妬を』 『格差を』『裏切りを』 『虐待を』 『巻き添えを』 『二次被害を』 『愛しい恋人のように受け入れることだ』『そうすればきっと僕みたいになれるよ』</OutputText>
+    <FaceImage>Smile</FaceImage>
+  </anyType>
+  <anyType xsi:type="TalkDataValue">
+    <InputText>今日の天気</InputText>
+    <OutputText>もし仮にだよ。 神様つー人がいてだね（人？）。 そんでその人が一念発起してさ「ガー」って、世界を一週間で作ったんならさ（そうやって聖書に書いてある！）。 私は言いたいね。 おお我が神よ。 各曜日の空の色だって変えたって良かったんじゃないですかっ！ ってね。 それぞれの曜日に意味があるのなら、その程度にはデザイン的な趣向をこらしたって良かった。 と私なら思う。 神様には沢山の天使様がいるんだから、一人ぐらいそういう提言をしたって良かったんじゃないかな？ それとも天界って言うのは、どこぞのワンマン社長か将軍様みたいな感じで部下の言う事なんざ聞く耳持たないってか？ 空の色で曜日が分かったら、いろいろと便利だし、気分的にもなんか楽しい感じがする。 でも実際は……。 空の色は曜日には関係なさそうだ</OutputText>
+    <FaceImage>Deconditioning</FaceImage>
+  </anyType>
+  <anyType xsi:type="TalkDataValue">
+    <InputText>なんか言って</InputText>
+    <OutputText>光が欲しくて暗闇に手を伸ばす 目醒めを待っていたのは見知らぬ世界 そして胸に揺らめく誰かの笑顔を 抱いたままに　徨いながらも </OutputText>
     <FaceImage>Normal</FaceImage>
   </anyType>
   <anyType xsi:type="TalkDataValue">
-    <InputText>猫</InputText>
-    <OutputText>子豚</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>タヌキ</InputText>
-    <OutputText>キツネ</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>ねぶた祭り</InputText>
-    <OutputText>リス</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>スイカ</InputText>
-    <OutputText>カボス</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>スズメ</InputText>
-    <OutputText>めだか</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>かりんとう</InputText>
-    <OutputText>ウツボ</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>ボイコット</InputText>
-    <OutputText>トマト</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>東京都</InputText>
-    <OutputText>盗賊</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>クスリ</InputText>
-    <OutputText>リクチ</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>地下鉄</InputText>
-    <OutputText>つつみ</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>ゴイシ</InputText>
-    <OutputText>しか</OutputText>
-    <FaceImage>Normal</FaceImage>
-  </anyType>
-  <anyType xsi:type="TalkDataValue">
-    <InputText>カラス</InputText>
-    <OutputText>推古天皇</OutputText>
+    <InputText>モンスタハンターについて</InputText>
+    <OutputText>モンスターハンターについて考察することだが、 いくら何でもモンスターの名前が幼稚すぎないか？まあ、 ゲームだから子供向けなのは仕方ないが、リオレウスとかティガレックスとか ポケモンやドラゴンボールの敵がごとく、というわけだ。 ここまで多数派プレイヤーが３５０万人もプレイしているのだし、正直 名前はもう少し年齢層を上げて欲しいと願う。 例リオレウス→レッドストーム ティガレックス→ファングオブガイア ミラボレアス→ザ・デス イヤンクック→ティーチャー ラージャン→金色焔王 ラオシャンロン→グランドアース</OutputText>
     <FaceImage>Normal</FaceImage>
   </anyType>
 </ArrayOfAnyType>
